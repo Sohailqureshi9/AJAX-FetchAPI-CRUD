@@ -98,14 +98,14 @@ $(document).ready(function () {
         },
 
         submitHandler: async function (form) {
-            form.preventDefault();
+            event.preventDefault();
 
             $("#response").empty();
 
-            const mode = $('#todo-form').attr('data-mode');
+            const mode = $('#todo-form').attr('data-mode'); 
             const todoId = $('#todo-form').attr('data-id');
 
-
+           
             if (mode === 'view') return false;
 
             const payload = {
@@ -136,11 +136,11 @@ $(document).ready(function () {
 
                 if (!res.ok) throw data;
 
-                
+            
                 modalToggle();
                 $('#todo-form')[0].reset();
 
-                /
+               
                 $("#response").html(`
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
                         ${data.message}
@@ -149,7 +149,6 @@ $(document).ready(function () {
                 `);
                 autoHideResponse();
 
-            
                 if (mode === 'edit' && todoId) {
                     $(`#todo_${todoId} td:nth-child(2)`).html(data.todo.title);
                     $(`#todo_${todoId} td:nth-child(3)`).html(data.todo.description);
@@ -197,20 +196,20 @@ $(document).ready(function () {
             $('#todo-form').attr('data-mode', mode);
 
             if (mode === 'view') {
-        
+             
                 $('#todo-form input, #todo-form textarea').prop('readonly', true);
 
-                
+               
                 $('#save-btn').addClass('d-none').prop('disabled', true);
 
                 $('#modal-title').html('Todo Details of: ' + todo.title);
             }
 
             if (mode === 'edit') {
-            
+               
                 $('#todo-form input, #todo-form textarea').prop('readonly', false);
 
-        
+               
                 $('#save-btn').removeClass('d-none').prop('disabled', false);
 
                 $('#modal-title').html('Edit Todo: ' + todo.title);
@@ -223,19 +222,19 @@ $(document).ready(function () {
         }
     }
 
-    
+  
     $('#todo-table').on('click', '.btn-view', function () {
         const todoId = $(this).data('id');
         if (todoId) fetchTodo(todoId, 'view');
     });
 
-    
+  
     $('#todo-table').on('click', '.btn-edit', function () {
         const todoId = $(this).data('id');
         if (todoId) fetchTodo(todoId, 'edit');
     });
 
-  
+
     $('#todo-table').on('click', '.btn-delete', function () {
         const todoId = $(this).data('id');
         if (!todoId) return;
