@@ -119,7 +119,7 @@ Authentication (Laravel Breeze)
 Role-based access (Admin/User)
 
 API version
-
+---
 👨‍💻 Author
 
 Muhammad Sohail
@@ -128,14 +128,3 @@ GitHub: https://github.com/Sohailqureshi9
 
 📄 License
 
-This project is open-source and free to use for learning and educational purposes.
-
-
-If you want, I can also:
-- ✨ Make **README more concise**
-- 📸 Add **screenshots section**
-- 🏷️ Write **LinkedIn post** for this project
-- 🧪 Add **API documentation**
-- 🔐 Add **Laravel Breeze authentication**
-
-Just tell me 👍
